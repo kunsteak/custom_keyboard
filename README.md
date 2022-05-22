@@ -1,3 +1,3 @@
-# My personal custom keyboarc files
+# My personal custom keyboard files
 
 ![](draw.io/ferris_layout_QWERTY.png)
