@@ -7,7 +7,7 @@ enum tap_dance_codes {
   DANCE_1, // single: "." | hold: "!" [0]
   DANCE_2, // single: "," | hold: "-" [0]
   DANCE_3, // single: "/" | hold: "_" [0]
-  DANCE_4, // single: "#" | hold: Screenshot LGUI(LSFT(KC_3)) [1]
+  DANCE_4, // single: "#" | hold: Screenshot menu LGUI(LSFT(KC_5)) [1]
   DANCE_5, // single: "$" | hold: "€" / LALT(LSFT(KC_2)) [1]
   DANCE_6, // single: ";" | hold: ":" / LSFT(KC_COLN) [1]
   DANCE_7, // single: "ESC" | hold: Quit Window LGUI(KC_Q) [1]
@@ -51,11 +51,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [2] = LAYOUT(
   //-----------------------------------------------------------------------------------       -----------------------------------------------------------------------------------
-      TD(DANCE_7),    KC_PPLS,    KC_PMNS,    KC_PAST,    KC_PSLS,                              KC_BSPC,    KC_P9,    KC_P8,    KC_P7,    TD(DANCE_9),
+      TD(DANCE_7),    KC_PPLS,    KC_PMNS,    KC_PAST,    KC_PSLS,                              KC_BSPC,    KC_9,    KC_8,    KC_7,    TD(DANCE_9),
   //-----------------------------------------------------------------------------------       -----------------------------------------------------------------------------------
-      KC_TAB,    KC_MPRV,    KC_VOLD,    KC_VOLU,    KC_MNXT,                                   KC_PENT,    KC_P6,    KC_P5,    KC_P4,    KC_PEQL,
+      KC_TAB,    KC_MPRV,    KC_VOLD,    KC_VOLU,    KC_MNXT,                                   KC_ENTER,    KC_6,    KC_5,    KC_4,    KC_PEQL,
   //-----------------------------------------------------------------------------------       -----------------------------------------------------------------------------------
-      KC_LSFT,    KC_UNDS,    KC_BRID,    KC_BRIU,    KC_MPLY,                                  TO(3),    KC_P3,    KC_P2,    KC_P1,    KC_P0,
+      KC_LSFT,    KC_UNDS,    KC_BRID,    KC_BRIU,    KC_MPLY,                                  TO(3),    KC_3,    KC_2,    KC_1,    KC_0,
   //-----------------------------------------------------------------------------------       -----------------------------------------------------------------------------------
   	  TO(0),    KC_LGUI,                                                                        TO(1),    KC_RALT
   //-----------------------------------------------------------------------------------       -----------------------------------------------------------------------------------
@@ -311,7 +311,7 @@ void dance_4_finished(qk_tap_dance_state_t *state, void *user_data) {
     dance_state.step = dance_4_dance_step(state);
     switch (dance_state.step) {
         case SINGLE_TAP: register_code16(LSFT(KC_3)); break;
-        case SINGLE_HOLD: register_code16(LGUI(LSFT(KC_3))); break;
+        case SINGLE_HOLD: register_code16(LGUI(LSFT(KC_5))); break;
         case DOUBLE_TAP: register_code16(LSFT(KC_3)); register_code16(LSFT(KC_3)); break;
         case DOUBLE_SINGLE_TAP: tap_code16(LSFT(KC_3)); register_code16(LSFT(KC_3));
     }
@@ -320,7 +320,7 @@ void dance_4_reset(qk_tap_dance_state_t *state, void *user_data) {
     wait_ms(10);
     switch (dance_state.step) {
         case SINGLE_TAP: unregister_code16(LSFT(KC_3)); break;
-        case SINGLE_HOLD: unregister_code16(LGUI(LSFT(KC_3))); break;
+        case SINGLE_HOLD: unregister_code16(LGUI(LSFT(KC_5))); break;
         case DOUBLE_TAP: unregister_code16(LSFT(KC_3)); break;
         case DOUBLE_SINGLE_TAP: unregister_code16(LSFT(KC_3)); break;
     }
